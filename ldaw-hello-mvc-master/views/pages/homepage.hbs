@@ -1,0 +1,58 @@
+<h1>Hello MVC</h1>
+<p>This is my first page</p>
+<h2>Our products</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each products}}
+        <tr>
+            <td>
+                <a href="/product/{{id}}" class="list-group-item list-group-item-action">
+                    {{name}}
+                </a>
+            </td>
+            <td>
+                <a href="/product/{{id}}" class="list-group-item list-group-item-action">
+                    {{description}}
+                </a>
+            </td>
+            <td>
+                <a href="/product/{{id}}" class="list-group-item list-group-item-action">
+                    {{price}}
+                </a>
+            </td>
+            {{!-- <button type="submit" class="btn btn-outline-danger">Delete</button> --}}
+            <td>
+                <form method="POST">
+                    <input type="hidden" value="{{id}}" name="id">
+                    <button type="submit" class="btn btn-outline-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{!-- <ul class="list-group">
+    {{#each products}}
+    <div class="row">
+        <div class="col">
+            <a href="/product/{{id}}" class="list-group-item list-group-item-action">
+                Nombre: {{name}} ($ {{price}})
+            </a>
+        </div>
+        <div class="col">
+            <form method="POST">
+                <input type="hidden" value="{{id}}" name="id">
+                <button type="submit" class="btn btn-outline-danger">Delete</button>
+            </form>
+        </div>
+    </div>
+    {{/each}}
+</ul> --}}
+<a type="button" class="btn btn-outline-success" href="/newProduct">Add</a>
