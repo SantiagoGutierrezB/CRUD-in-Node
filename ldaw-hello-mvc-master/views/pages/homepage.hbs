@@ -4,6 +4,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th scope="col">id</th>
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">Price</th>
@@ -12,18 +13,23 @@
     <tbody>
         {{#each products}}
         <tr>
+            <th scope="row">
+                <a href="/product/{{id}}" class="list-group-item-action">
+                    {{id}}
+                </a>
+            </th>
             <td>
-                <a href="/product/{{id}}" class="list-group-item list-group-item-action">
+                <a href="/product/{{id}}" class="list-group-item-action">
                     {{name}}
                 </a>
             </td>
             <td>
-                <a href="/product/{{id}}" class="list-group-item list-group-item-action">
+                <a href="/product/{{id}}" class="list-group-item-action">
                     {{description}}
                 </a>
             </td>
             <td>
-                <a href="/product/{{id}}" class="list-group-item list-group-item-action">
+                <a href="/product/{{id}}" class="list-group-item-action">
                     {{price}}
                 </a>
             </td>
@@ -38,21 +44,4 @@
         {{/each}}
     </tbody>
 </table>
-{{!-- <ul class="list-group">
-    {{#each products}}
-    <div class="row">
-        <div class="col">
-            <a href="/product/{{id}}" class="list-group-item list-group-item-action">
-                Nombre: {{name}} ($ {{price}})
-            </a>
-        </div>
-        <div class="col">
-            <form method="POST">
-                <input type="hidden" value="{{id}}" name="id">
-                <button type="submit" class="btn btn-outline-danger">Delete</button>
-            </form>
-        </div>
-    </div>
-    {{/each}}
-</ul> --}}
 <a type="button" class="btn btn-outline-success" href="/newProduct">Add</a>
